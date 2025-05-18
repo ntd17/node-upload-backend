@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  node_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node_server
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    # Removed volume mount to prevent overwriting node_modules
+    # volumes:
+    #   - .:/app
+
+  # Removed fastapi_frontend service and replaced with php_frontend
+  php_frontend:
+    image: php:8.1-apache
+    container_name: php_frontend
+    ports:
+      - "8000:80"
+    volumes:
+      - ./php_frontend:/var/www/html
+    depends_on:
+      - node_server
