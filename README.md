@@ -14,7 +14,7 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/node-upload-backend.git
+   git clone https://github.com/ntd17/node-upload-backend.git
    cd node-upload-backend
    ```
 
